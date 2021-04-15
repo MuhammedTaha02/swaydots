@@ -3,8 +3,8 @@
 ## Color Variants
 #
 ##############################
-set $coloract #785442
-set $colorin #523a2d
+set $coloract #a62707
+set $colorin #711b05
 set $color15 #e0ce8b
 set $split #D03109
 set $coloru #D03109

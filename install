@@ -13,6 +13,15 @@ case $1 in
 		ln -sf $HOME/.config/sway/config.d/colors $HOME/.config/wpg/templates/sway
 		ln -sf $HOME/.config/waybar/style.css $HOME/.config/wpg/templates/waybar
 		ln -sf $HOME/.config/mako/config $HOME/.config/wpg/templates/mako
+		sch=$(ls $HOME/.config/wpg/schemes)
+		usrsch=$(ls $HOME/.config/wpg/schemes | sed "s/arch/$USER/g")
+		mv $HOME/.config/wpg/schemes/$sch $HOME/.config/wpg/schemes/$usrsch
+		cp $PWD/gtk/gtk2 $HOME/.local/share/themes/FlatColor/gtk-2.0/gtkrc
+		cp $PWD/gtk/gtk3.0 $HOME/.local/share/themes/FlatColor/gtk-3.0/gtk.css
+		cp $PWD/gtk/gtk3.20 $HOME/.local/share/themes/FlatColor/gtk-3.20/gtk.css
+		cp $PWD/gtk/gtkrc $HOME/.gtkrc-2.0
+		gsettings set org.gnome.desktop.interface gtk-theme 'FlatColor'
+		gsettings set org.gnome.desktop.interface icon-theme 'flattrcolor'
 	;;
 	--restore)
 		for r in $(ls $HOME/.backupdots); do
