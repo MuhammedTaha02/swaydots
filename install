@@ -9,7 +9,7 @@ case $1 in
 		pip install pywal
 		pip install pillow
 		pip install wpgtk
-		wpg-install.sh -gi
+		$HOME/.local/bin/wpg-install.sh -gi
 		ln -sf $HOME/.config/sway/config.d/colors $HOME/.config/wpg/templates/sway
 		ln -sf $HOME/.config/waybar/style.css $HOME/.config/wpg/templates/waybar
 		ln -sf $HOME/.config/mako/config $HOME/.config/wpg/templates/mako
