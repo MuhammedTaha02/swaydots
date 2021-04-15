@@ -6,3 +6,5 @@ mako &
 #swaymsg "layout tabbed" &
 eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)
 export SSH_AUTH_SOCK
+wl-paste -w wl-paste -p >> ~/.clipboard-history
+

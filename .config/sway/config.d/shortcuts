@@ -198,7 +198,7 @@ bindsym $mod+Shift+r reload
 ## Restart i3 inplace
 #
 ###############################
-bindsym $mod+Shift+c restart
+#bindsym $mod+Shift+c restart
 
 
 ###############################
@@ -207,6 +207,15 @@ bindsym $mod+Shift+c restart
 #
 ###############################
 bindsym $mod+d exec $menu
+
+
+###############################
+#
+## Clipboard Menu
+#
+###############################
+bindsym $mod+c exec tac $HOME/.clipboard-history | wofi --dmenu | wl-copy
+bindsym $mod+Shift+c exec echo "" > $HOME/.clipboard-history
 
 
 ###############################
