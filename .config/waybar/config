@@ -76,12 +76,12 @@
     },
     "network": {
         // "interface": "wlp2*", // (Optional) To force the use of this interface
-        "format-wifi": "  [ {essid} ]",
+        "format-wifi": "",
         "format-ethernet": "  {ifname}",
         "format-linked": "  {ifname} (No IP)",
         "format-disconnected": "⚠  Disconnected",
         // "format-alt": "{ifname}: {ipaddr}/{cidr}",
-	"format-alt": "",
+	"format-alt": " [ {essid} ]",
         "on-click-right": "kitty -e nmtui"
     },
     "custom/fan": {
