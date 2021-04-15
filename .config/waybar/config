@@ -23,6 +23,9 @@
     //         "default": ""
     //     }
     // },
+    "sway/workspaces": {
+        "format": " {}"
+    },
     "sway/mode": {
         "format": "<span style=\"italic\">{}</span>"
     },
