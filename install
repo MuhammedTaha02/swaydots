@@ -1,15 +1,19 @@
 #!/bin/bash
+PATH="$HOME/.local/bin:$PATH"
+export PATH
 case $1 in
-	--install)
+	-i)
 		mkdir $HOME/.backupdots
 		for i in $(ls $PWD/.config); do
 			[[ -e $HOME/.config/$i ]] && mv $HOME/.config/$i $HOME/.backupdots
 		done
 		cp -r $PWD/.config/* $HOME/.config/
+		cp -r $PWD/.fonts $HOME/
 		pip install pywal
 		pip install pillow
 		pip install wpgtk
-		$HOME/.local/bin/wpg-install.sh -gi
+		fc-cache
+		wpg-install.sh -gi
 		ln -sf $HOME/.config/sway/config.d/colors $HOME/.config/wpg/templates/sway
 		ln -sf $HOME/.config/waybar/style.css $HOME/.config/wpg/templates/waybar
 		ln -sf $HOME/.config/mako/config $HOME/.config/wpg/templates/mako
@@ -23,7 +27,7 @@ case $1 in
 		gsettings set org.gnome.desktop.interface gtk-theme 'FlatColor'
 		gsettings set org.gnome.desktop.interface icon-theme 'flattrcolor'
 	;;
-	--restore)
+	-r)
 		for r in $(ls $HOME/.backupdots); do
 			rm -rf $HOME/.config/$r
 			cp -r $HOME/.backupdots/$r $HOME/.config/
