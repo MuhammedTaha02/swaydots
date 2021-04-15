@@ -1,6 +1,15 @@
 #!/bin/bash
 PATH="$HOME/.local/bin:$PATH"
 export PATH
+
+checkprogram()
+{
+  command -v $1 >/dev/null 2>&1;
+  if [[ $? -eq 1 ]]; then
+    echo "Please install $1 before proceeding"; 
+    exit 1;
+  fi
+}
 case $1 in
 	-i)
 		checkprogram sway
@@ -47,11 +56,4 @@ case $1 in
 	;;
 esac
 
-checkprogram()
-{
-  command -v $1 >/dev/null 2>&1;
-  if [[ $? -eq 1 ]]; then
-    echo "Please install $1 before proceeding"; 
-    exit 1;
-  fi
-}
+
