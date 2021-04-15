@@ -144,6 +144,7 @@ bindsym XF86AudioPrev exec playerctl previous
 ###############################
 bindsym Print exec ~/.config/sway/scripts.d/screenshot.sh full
 bindsym shift+Print exec ~/.config/sway/scripts.d/screenshot.sh rec
+bindsym ctrl+shift+Print exec ~/.config/sway/scripts.d/screenshot.sh fullsave
 #bindsym Print exec flameshot full -p ~/Pictures/Flameshot
 #bindsym Print exec scrot
 #bindsym shift+Print exec flameshot gui
