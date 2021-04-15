@@ -17,6 +17,7 @@ case $1 in
 		ln -sf $HOME/.config/sway/config.d/colors $HOME/.config/wpg/templates/sway
 		ln -sf $HOME/.config/waybar/style.css $HOME/.config/wpg/templates/waybar
 		ln -sf $HOME/.config/mako/config $HOME/.config/wpg/templates/mako
+		ln -sf $HOME/.config/wpg/wallpapers/* $HOME/.config/wpg/.current
 		sch=$(ls $HOME/.config/wpg/schemes)
 		usrsch=$(ls $HOME/.config/wpg/schemes | sed "s/arch/$USER/g")
 		mv $HOME/.config/wpg/schemes/$sch $HOME/.config/wpg/schemes/$usrsch
