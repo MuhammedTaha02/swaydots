@@ -4,10 +4,14 @@
 
 ## Dots install
 git clone https://github.com/MuhammedTaha02/swaydots.git
+
 cd swaydots
+
 ./install -i
 
 ## Dots remove
 git clone https://github.com/MuhammedTaha02/swaydots.git
+
 cd swaydots
+
 ./install -r
