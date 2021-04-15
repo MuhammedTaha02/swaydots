@@ -3,6 +3,14 @@ PATH="$HOME/.local/bin:$PATH"
 export PATH
 case $1 in
 	-i)
+		checkprogram sway
+		checkprogram lxappearance
+		checkprogram waybar
+		checkprogram mako
+		checkprogram grim
+		checkprogram brightnessctl
+		checkprogram wofi
+		checkprogram git
 		mkdir $HOME/.backupdots
 		for i in $(ls $PWD/.config); do
 			[[ -e $HOME/.config/$i ]] && mv $HOME/.config/$i $HOME/.backupdots
@@ -27,6 +35,8 @@ case $1 in
 		cp $PWD/gtk/gtkrc $HOME/.gtkrc-2.0
 		gsettings set org.gnome.desktop.interface gtk-theme 'FlatColor'
 		gsettings set org.gnome.desktop.interface icon-theme 'flattrcolor'
+		curl -sS https://raw.githubusercontent.com/MuhammedTaha02/swaydots/main/blurlock | sudo tee /usr/local/bin/blurlock
+		sudo chmod +x /usr/local/bin/blurlock
 		swaymsg reload
 	;;
 	-r)
@@ -36,3 +46,12 @@ case $1 in
 		done
 	;;
 esac
+
+checkprogram()
+{
+  command -v $1 >/dev/null 2>&1;
+  if [[ $? -eq 1 ]]; then
+    echo "Please install $1 before proceeding"; 
+    exit 1;
+  fi
+}
