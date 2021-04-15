@@ -132,6 +132,7 @@
             "default": ["", "", ""]
         },
         "scroll-step": 5,
-        "on-click": "pavucontrol"
+        "on-click": "pactl set-sink-mute $(pacmd list-sinks | grep -e '* index:' | awk -F ': ' '{print $2}') toggle",
+	"on-click-right": "pavucontrol"
     },
 }
