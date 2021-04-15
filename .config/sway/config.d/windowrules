@@ -19,6 +19,7 @@
 for_window [app_id="(zenity)" title="PowerMenu"] floating enable
 for_window [app_id="(zenity)" title="PowerMenu"] move absolute position 15 45
 for_window [app_id="system-config-printer"] floating enable
+for_window [class="feh"] floating enable
 for_window [app_id="gnome-calculator"] floating enable
 for_window [app_id="tilix"] floating enable
 for_window [class="(?i)Lxappearance$"] floating enable
