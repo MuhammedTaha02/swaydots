@@ -27,6 +27,7 @@ case $1 in
 		cp $PWD/gtk/gtkrc $HOME/.gtkrc-2.0
 		gsettings set org.gnome.desktop.interface gtk-theme 'FlatColor'
 		gsettings set org.gnome.desktop.interface icon-theme 'flattrcolor'
+		swaymsg reload
 	;;
 	-r)
 		for r in $(ls $HOME/.backupdots); do
