@@ -21,6 +21,7 @@ case $1 in
 		checkprogram wofi
 		checkprogram git
 		checkprogram kitty
+		checkprogram feh
 		mkdir $HOME/.backupdots
 		for i in $(ls $PWD/.config); do
 			[[ -e $HOME/.config/$i ]] && mv $HOME/.config/$i $HOME/.backupdots
