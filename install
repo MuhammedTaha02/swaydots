@@ -9,14 +9,7 @@ FGRES="\e[0;39m"
 
 _logfile=$PWD/installer-$(date +%d%m%Y_%H%M%S).log
 _sep="========================="
-_locale=$(swaymsg -t get_inputs | jq 'map(select(has("xkb_active_layout_name")))[0].xkb_active_layout_name')
-if [[ $_locale == "Turkish" ]]; then
-	_layout=tr
-elif [[ $_locale == "Deutsch" ]]; then
-	_layout=de
-else
-	_layout=us
-fi
+
 
 checkprogram()
 {
@@ -28,7 +21,7 @@ checkprogram()
 }
 
 case $1 in
-	-i)
+	-i)	
 		echo -e "${FGREN} Checking program(s)...${FGRES}"
 		checkprogram sway
 		checkprogram lxappearance
@@ -42,7 +35,18 @@ case $1 in
 		checkprogram feh
 		checkprogram wget
 		checkprogram pip
+		checkprogram jq
 		echo -e "${FGREN} All dependencies are present on the computer :) ${FGRES}"
+		
+		
+		_locale=$(swaymsg -t get_inputs | jq 'map(select(has("xkb_active_layout_name")))[0].xkb_active_layout_name')
+		if [[ "$(cat $_locale | grep -o Turkish)" == "Turkish" ]]; then
+			_layout=tr
+		elif [[ "$(cat $_locale | grep -o Deutsch)" == "Deutsch" ]]; then
+			_layout=de
+		else
+			_layout=us
+		fi
 		
 
 		echo -e "${FGREN} Backing up previous dotfile files, if any...${FGRES}"
@@ -114,9 +118,13 @@ case $1 in
 	;;
 	-r)
 		echo -e "${FGYEL} Removing dotfiles and restoring old dotfiles...${FGRES}"
-		for r in $(ls $HOME/.backupdots); do
-			rm -rf $HOME/.config/$r 1>>$_logfile
-			cp -r $HOME/.backupdots/$r $HOME/.config/ 1>>$_logfile
-		done
+		if [[ "$(echo $PWD | grep -o swaydots)" == "swaydots" ]]; then
+			for r in $(ls $PWD/.config); do
+				rm -rf $HOME/.config/$r 1>>$_logfile
+				cp -r $HOME/.backupdots/$r $HOME/.config/ 1>>$_logfile
+			done
+		else
+		       	echo -e "${FGRED} This process is critical. Please take your current location to the swaydots folder. ${FGRES}"
+		fi
 	;;
 esac
