@@ -9,6 +9,14 @@ FGRES="\e[0;39m"
 
 _logfile=$PWD/installer-$(date +%d%m%Y_%H%M%S).log
 _sep="========================="
+_locale=$(swaymsg -t get_inputs | jq 'map(select(has("xkb_active_layout_name")))[0].xkb_active_layout_name')
+if [[ $_locale == "Turkish" ]]; then
+	_layout=tr
+elif [[ $_locale == "Deutsch" ]]; then
+	_layout=de
+else
+	_layout=us
+fi
 
 checkprogram()
 {
@@ -90,6 +98,14 @@ case $1 in
 		echo -e "$_sep" 1>>$_logfile
 
 		
+		echo -e "${FGREN} Setting keyboard locale...${FGRES}"
+		echo -e "${FGYEL} Your keyboard layout is $_locale, Setting locale $_layout"
+		echo -e " If you want to set another keyboard layout,"
+		echo -e " you can edit the file ~/.config/sway/config.d/inputs ${FGRES}"
+		sed -i "s/tr/$_layout/1" $HOME/.config/sway/config.d/inputs
+
+
+
 		echo -e "${FGREN} Installing blurlock (required password)...${FGRES}"
 		echo -e "$_sep" 1>>$_logfile
 	       	sudo cp blurlock /usr/local/bin/blurlock 1>>$_logfile
