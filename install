@@ -40,9 +40,9 @@ case $1 in
 		
 		
 		_locale=$(swaymsg -t get_inputs | jq 'map(select(has("xkb_active_layout_name")))[0].xkb_active_layout_name')
-		if [[ "$(cat $_locale | grep -o Turkish)" == "Turkish" ]]; then
+		if [[ "$(echo $_locale | grep -o Turkish)" == "Turkish" ]]; then
 			_layout=tr
-		elif [[ "$(cat $_locale | grep -o Deutsch)" == "Deutsch" ]]; then
+		elif [[ "$(echo $_locale | grep -o Deutsch)" == "Deutsch" ]]; then
 			_layout=de
 		else
 			_layout=us
@@ -120,8 +120,8 @@ case $1 in
 		echo -e "${FGYEL} Removing dotfiles and restoring old dotfiles...${FGRES}"
 		if [[ "$(echo $PWD | grep -o swaydots)" == "swaydots" ]]; then
 			for r in $(ls $PWD/.config); do
-				rm -rf $HOME/.config/$r 1>>$_logfile
-				cp -r $HOME/.backupdots/$r $HOME/.config/ 1>>$_logfile
+				rm -rf $HOME/.config/$r &>>$_logfile
+				cp -r $HOME/.backupdots/$r $HOME/.config/ &>>$_logfile
 			done
 		else
 		       	echo -e "${FGRED} This process is critical. Please take your current location to the swaydots folder. ${FGRES}"
