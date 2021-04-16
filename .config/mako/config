@@ -2,7 +2,7 @@ font=DejaVu Sans 9
 # anchor=bottom-right
 width=350
 padding=10
-margin=14
+margin=15
 border-size=8
 default-timeout=10000
 
