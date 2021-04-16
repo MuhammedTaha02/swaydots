@@ -6,7 +6,7 @@
     // Choose the order of the modules
     "modules-left": ["custom/space", "custom/powermenu", "custom/seperator", "sway/workspaces", "sway/mode", "custom/media", "sway/window"],
     //"modules-center": ["sway/window"],
-    "modules-right": ["custom/pacman", "idle_inhibitor", "custom/fan", "backlight", "pulseaudio", "battery", "network", "clock", "tray", "custom/space"],
+    "modules-right": ["custom/screenshot", "custom/pacman", "idle_inhibitor", "custom/fan", "backlight", "pulseaudio", "battery", "network", "clock", "tray", "custom/space"],
     // Modules configuration
     // "sway/workspaces": {
     //     "disable-scroll": true,
@@ -114,6 +114,11 @@
         "format": "      ",
         "interval": 3600,
         "on-click": "$HOME/.config/sway/scripts.d/powermenu.sh"
+    },
+    "custom/screenshot": {
+	"format": "   	   ",
+	"interval": 3600,
+	"on-click": "$HOME/.config/sway/scripts.d/screenshot.sh"
     },
     "pulseaudio": {
         // "scroll-step": 1, // %, can be a float
