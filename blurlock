@@ -1,5 +1,4 @@
 #!/bin/bash
-# /usr/bin/blurlock
 
 # take screenshot
 grim -t png /tmp/screenshot.png
