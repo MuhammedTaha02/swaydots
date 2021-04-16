@@ -1,5 +1,4 @@
 #!/bin/bash
-# BRIGHTNESSCTL POLYBAR BRIDGE, AUTHOR ON https://t.me/O5M4NA6A
 if [ "$(brightnessctl | grep class | awk -F "'" '{print $4}')" == "backlight" ]
 	then
 		case $1 in
