@@ -29,7 +29,7 @@ checkprogram()
 
 case $1 in
 	-i)
-		echo -e "${FGREN} Checking program(s)..."
+		echo -e "${FGREN} Checking program(s)...${FGRES}"
 		checkprogram sway
 		checkprogram lxappearance
 		checkprogram waybar
@@ -45,9 +45,9 @@ case $1 in
 		echo -e "${FGREN} All dependencies are present on the computer :) ${FGRES}"
 		
 
-		echo -e "${FGREN} Backing up previous dotfile files, if any.. ${FGRES}"
-		echo -e "$_sep" 1>>$_logfile 
-		echo -e ">> BACKUP" 
+		echo -e "${FGREN} Backing up previous dotfile files, if any...${FGRES}"
+		echo -e "$_sep" 1>>$_logfile
+		echo -e ">> BACKUP" 1>>$_logfile
 		mkdir $HOME/.backupdots 1>>$_logfile
 		for i in $(ls $PWD/.config); do
 			[[ -e $HOME/.config/$i ]] && mv $HOME/.config/$i $HOME/.backupdots
@@ -55,7 +55,7 @@ case $1 in
 		echo -e "$_sep" 1>>$_logfile
 		
 
-		echo -e "${FGREN} Installing swaydots"
+		echo -e "${FGREN} Installing swaydots...${FGRES}"
 		echo -e "$_sep" 1>>$_logfile
 		echo -e ">> COPY" 1>>$_logfile
 		cp -r $PWD/.config/* $HOME/.config/ 1>>$_logfile
@@ -63,7 +63,7 @@ case $1 in
 		echo -e "$_sep" 1>>$_logfile
 		
 
-		echo -e "${FGREN} Downloading extra dependencies.."
+		echo -e "${FGREN} Downloading extra dependencies...${FGRES}"
 		echo -e "$_sep" 1>>$_logfile
 		echo -e ">> PIP" 1>>$_logfile
 		pip install pywal 1>>$_logfile
@@ -76,7 +76,7 @@ case $1 in
 		echo -e "${FGREN} Installing FlatColor theme, linking dotfiles in wpgtk and applying theme.."
 		echo -e "$_sep" 1>>$_logfile
 		echo -e ">> WPG" 1>>$_logfile
-		wpg-install.sh -gi 1>>$_logfile
+		wpg-install.sh -gi &>>$_logfile
 		echo -e ">> LN" 1>>$_logfile
 		ln -sf $HOME/.config/sway/config.d/colors $HOME/.config/wpg/templates/sway 1>>$_logfile
 		ln -sf $HOME/.config/waybar/style.css $HOME/.config/wpg/templates/waybar 1>>$_logfile
