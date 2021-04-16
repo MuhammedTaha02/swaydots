@@ -4,7 +4,7 @@
 #
 ###############################
 input type:keyboard {
-    xkb_layout asd
+    xkb_layout tr
     xkb_numlock enabled
 }
 
