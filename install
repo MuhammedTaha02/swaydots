@@ -15,7 +15,7 @@ checkprogram()
 {
   command -v $1 >/dev/null 2>&1;
   if [[ $? -eq 1 ]]; then
-    echo -e "${FGRED}Please install $1 before proceeding. ${FGRES}"; 
+    echo -e "${FGRED} Please install $1 before proceeding. ${FGRES}"; 
     exit 1;
   fi
 }
@@ -36,6 +36,7 @@ case $1 in
 		checkprogram wget
 		checkprogram pip
 		checkprogram jq
+		checkprogram swappy
 		echo -e "${FGREN} All dependencies are present on the computer :) ${FGRES}"
 		
 		
