@@ -32,6 +32,6 @@ case $ENTRY in
 		blurlock
 	;;
 	* )
-		echo "Ğ"
+		echo ""
 	;;
 esac
