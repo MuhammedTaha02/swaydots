@@ -99,6 +99,7 @@ case $1 in
 		echo -e ">> GSETTINGS" &>>$_logfile
 		gsettings set org.gnome.desktop.interface gtk-theme 'FlatColor' &>>$_logfile
 		gsettings set org.gnome.desktop.interface icon-theme 'flattrcolor' &>>$_logfile
+		[[ "$(cat /etc/os-release | grep "^NAME" | cut -d\" -f2)" != "Arch Linux" ]] && sed -i 's/"custom\/pacman", //1' $HOME/.config/waybar/config
 		swaymsg reload
 		echo -e "$_sep" &>>$_logfile
 
