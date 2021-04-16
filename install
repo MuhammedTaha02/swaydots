@@ -22,6 +22,7 @@ case $1 in
 		checkprogram git
 		checkprogram kitty
 		checkprogram feh
+		checkprogram wget
 		mkdir $HOME/.backupdots
 		for i in $(ls $PWD/.config); do
 			[[ -e $HOME/.config/$i ]] && mv $HOME/.config/$i $HOME/.backupdots
@@ -46,7 +47,8 @@ case $1 in
 		cp $PWD/gtk/gtkrc $HOME/.gtkrc-2.0
 		gsettings set org.gnome.desktop.interface gtk-theme 'FlatColor'
 		gsettings set org.gnome.desktop.interface icon-theme 'flattrcolor'
-		curl -sS https://raw.githubusercontent.com/MuhammedTaha02/swaydots/main/blurlock | sudo tee /usr/local/bin/blurlock
+		wget https://raw.githubusercontent.com/MuhammedTaha02/swaydots/main/blurlock
+	       	sudo mv blurlock /usr/local/bin/blurlock
 		sudo chmod +x /usr/local/bin/blurlock
 		swaymsg reload
 	;;
