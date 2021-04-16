@@ -19,6 +19,7 @@ fulltimecopy() {
 	--text '               Full Screenshot' \
 	--scale --value 3 --max-value 50)"
 	sleep $timeout
+	[[ -z "$timeout" ]] && exit
 	grim -g "0,0 $screenres" - | wl-copy && notify-send "The photo has been saved to the clipboard" || notify-send "The photo could not be saved"
 	[[ "$showeditor" == "yes" ]] && grim -g "0,0 $screenres" - | swappy -f -
 }
@@ -28,6 +29,7 @@ fulltimesave() {
 	--text '               Full Screenshot' \
 	--scale --value 3 --max-value 50)"
 	sleep $timeout
+	[[ -z "$timeout" ]] && exit
 	grim -g "0,0 $screenres" $HOME/Pictures/grim/IMG_$_date.jpg && notify-send "The photo was saved to $HOME/Pictures/grim/ with the name IMG_$_date.jpg" || notify-send "The photo could not be saved"
 	[[ "$showeditor" == "yes" ]] && swappy -f $HOME/Pictures/grim/IMG_$_date.jpg
 }
@@ -60,6 +62,7 @@ rectimecopy() {
 	--text '               Rectangular Screenshot' \
 	--scale --value 3 --max-value 50)"
 	sleep $timeout
+	[[ -z "$timeout" ]] && exit
 	grim -g "0,0 $screenres" /tmp/screenshot.png
 	feh -F /tmp/screenshot.png &
 	slurpout=$(slurp)
@@ -75,6 +78,7 @@ rectimesave() {
 	--text '               Rectangular Screenshot' \
 	--scale --value 3 --max-value 50)"
 	sleep $timeout
+	[[ -z "$timeout" ]] && exit
 	grim -g "0,0 $screenres" /tmp/screenshot.png
 	feh -F /tmp/screenshot.png &
 	slurpout=$(slurp)
