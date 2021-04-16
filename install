@@ -5,15 +5,7 @@ export PATH
 FGRED="\e[0;31m"
 FGREN="\e[0;32m"
 FGYEL="\e[0;33m"
-FGBLU="\e[0;34m"
 FGRES="\e[0;39m"
-BGRED="\e[1;41m"
-BGREN="\e[1;42m"
-BGYEL="\e[1;43m"
-BGBLU="\e[1;44m"
-BGRES="\e[1;49m"
-WARN="\e[5m"
-WRES="\e[0m"
 
 _logfile=$PWD/installer-$(date +%d%m%Y_%H%M%S).log
 _sep="========================="
@@ -73,7 +65,7 @@ case $1 in
 		echo -e "$_sep" 1>>$_logfile
 
 		
-		echo -e "${FGREN} Installing FlatColor theme, linking dotfiles in wpgtk and applying theme.."
+		echo -e "${FGREN} Installing FlatColor theme, linking dotfiles in wpgtk and applying theme...${FGRES}"
 		echo -e "$_sep" 1>>$_logfile
 		echo -e ">> WPG" 1>>$_logfile
 		wpg-install.sh -gi &>>$_logfile
@@ -98,14 +90,14 @@ case $1 in
 		echo -e "$_sep" 1>>$_logfile
 
 		
-		echo -e "${FGREN} Installing blurlock (required password)"
+		echo -e "${FGREN} Installing blurlock (required password)...${FGRES}"
 		echo -e "$_sep" 1>>$_logfile
 	       	sudo cp blurlock /usr/local/bin/blurlock 1>>$_logfile
 		sudo chmod +x /usr/local/bin/blurlock 1>>$_logfile
 		echo -e "$_sep" 1>>$_logfile
 	;;
 	-r)
-		echo -e "${FGYEL} Removing dotfiles and restoring old dotfiles.."
+		echo -e "${FGYEL} Removing dotfiles and restoring old dotfiles...${FGRES}"
 		for r in $(ls $HOME/.backupdots); do
 			rm -rf $HOME/.config/$r 1>>$_logfile
 			cp -r $HOME/.backupdots/$r $HOME/.config/ 1>>$_logfile
