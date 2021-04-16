@@ -4,7 +4,6 @@
 #
 ###############################
 floating_modifier $mod
-workspace_layout tabbed
 
 
 ###############################

@@ -22,3 +22,5 @@ gaps outer 0
 default_border pixel 5
 default_floating_border none
 hide_edge_borders --i3 none
+
+workspace_layout tabbed
