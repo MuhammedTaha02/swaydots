@@ -21,8 +21,8 @@ for_window [app_id="(zenity)" title="PowerMenu"] move absolute position 15 45
 for_window [app_id="(zenity)" title="Screenshot"] floating enable
 for_window [app_id="(zenity)" title="Screenshot"] move absolute position 1020 45
 for_window [title="dropterminal"] move container to scratchpad
-for_window [title="dropterminal"] move up 335 #absolute position 480 -16
-for_window [title="dropterminal"] resize set 960 380
+for_window [title="dropterminal"] move up 275 #absolute position 480 -16
+for_window [title="dropterminal"] resize set 960 500
 for_window [app_id="system-config-printer"] floating enable
 for_window [class="feh"] floating enable
 for_window [app_id="gnome-calculator"] floating enable
