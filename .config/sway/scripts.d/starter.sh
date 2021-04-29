@@ -6,5 +6,5 @@ killall mako &
 mako &
 eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)
 export SSH_AUTH_SOCK
+sleep 2 && kitty -T dropterminal ~ &
 wl-paste -w wl-paste -p >> $clipfile
-
