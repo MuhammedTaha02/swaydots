@@ -113,7 +113,7 @@ bindsym $mod+Ctrl+Left workspace prev
 ###############################
 bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5% #increase sound volume
 bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5% #decrease sound volume
-bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle # mute sound
+bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle       #mute sound
 
 
 ###############################
@@ -156,8 +156,8 @@ bindsym shift+Print exec ~/.config/sway/scripts.d/screenshot.sh rec
 ## Others
 #
 ###############################
-bindsym $mod+Return exec $terminal
-bindsym ctrl+period scratchpad show
+bindsym $mod+Return exec $HOME/.config/sway/scripts.d/terminal.sh default
+bindsym ctrl+period exec $HOME/.config/sway/scripts.d/terminal.sh dropdown
 bindsym $mod+q kill
 
 
